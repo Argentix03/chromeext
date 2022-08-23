@@ -1,0 +1,63 @@
+{
+    "name": "Hoshell",
+    "description": "It's a hoshell...",
+    "version": "2.0.0",
+    "manifest_version": 3,
+    "devtools_page": "Panel.html",
+    "icons": {
+        "16": "Demacian_Justice.png",
+        "32": "Demacian_Justice.png",
+        "48": "Demacian_Justice.png",
+        "128": "Demacian_Justice.png"
+      },
+    "action": {
+      "default_title": "Hoshelllll"
+    },
+    "content_scripts": [
+      {
+        "run_at" : "document_start",
+        "js": ["hoshell.js"],
+        "matches": [
+          "https://*/*",
+          "http://*/*"
+        ]
+      },
+      {
+        "run_at" : "document_idle",
+        "js": ["hoshell.js"],
+        "matches": [
+          "https://*/*",
+          "http://*/*"
+        ]
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "tabs",
+      "scripting",
+
+      "browsingData",
+      "activeTab",
+      "clipboardRead",
+      "clipboardWrite",
+      "cookies",
+      "debugger",
+      "downloads",
+      "fileSystemProvider",
+      "fileBrowserHandler",
+      "history",
+      "tts"
+    ],
+    "host_permissions": [
+      "https://*/*",
+      "http://*/*"
+    ],
+    "externally_connectable": {
+        "matches": [
+            "https://*/*",
+            "http://*/*"
+        ]
+    }
+  }
