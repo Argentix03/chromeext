@@ -9,9 +9,15 @@
         "32": "Demacian_Justice.png",
         "48": "Demacian_Justice.png",
         "128": "Demacian_Justice.png"
-      },
+    },
     "action": {
-      "default_title": "Hoshelllll"
+      "default_title": "Hoshelllll",
+      "default_popup": "popup.html",
+      "default_icon": {              
+        "16": "Demacian_Justice.png",   
+        "24": "Demacian_Justice.png",   
+        "32": "Demacian_Justice.png"    
+    }
     },
     "content_scripts": [
       {
@@ -37,7 +43,7 @@
     "permissions": [
       "tabs",
       "scripting",
-
+      "audio",
       "browsingData",
       "activeTab",
       "clipboardRead",
@@ -48,7 +54,8 @@
       "fileSystemProvider",
       "fileBrowserHandler",
       "history",
-      "tts"
+      "tts",
+      "notifications"
     ],
     "host_permissions": [
       "https://*/*",
@@ -59,5 +66,14 @@
             "https://*/*",
             "http://*/*"
         ]
-    }
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["*.mp3"],
+            "matches": [
+                "https://*/*",
+                "http://*/*"
+            ]
+        }
+    ]
   }
